@@ -1,6 +1,8 @@
 
 # routes.rb
 
+
+
 OpenCamp::Application.routes.draw do
   devise_for :users
 
@@ -20,4 +22,5 @@ OpenCamp::Application.routes.draw do
 
   resources :notes
   resources :tasks
+  root to: 'tasks#index'
 end
