@@ -4,7 +4,7 @@ before_filter :authenticate_user!
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
 
     respond_to do |format|
       format.html # index.html.erb
@@ -43,6 +43,7 @@ before_filter :authenticate_user!
   # POST /tasks.json
   def create
     @task = Task.new(params[:task])
+    @task.user = current_user
 
     respond_to do |format|
       if @task.save

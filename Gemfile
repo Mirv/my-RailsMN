@@ -1,3 +1,4 @@
+
 gem 'devise'
 gem 'rails', '3.2.13'
 source "https://rubygems.org"

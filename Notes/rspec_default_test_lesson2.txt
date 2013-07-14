@@ -1,0 +1,109 @@
+Erorr in initial testing of the rspec:
+
+
+vagrant@rails-dev-box:/vagrant/open_camp/spec/models$ rake spec
+(in /vagrant/open_camp)
+NOTICE:  CREATE TABLE will create implicit sequence "notes_id_seq" for serial column "notes.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "notes_pkey" for table "notes"
+NOTICE:  CREATE TABLE will create implicit sequence "tasks_id_seq" for serial column "tasks.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "tasks_pkey" for table "tasks"
+NOTICE:  CREATE TABLE will create implicit sequence "users_id_seq" for serial column "users.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "users_pkey" for table "users"
+/home/vagrant/.rvm/rubies/ruby-2.0.0-p195/bin/ruby -S rspec ./spec/controllers/notes_controller_spec.rb ./spec/helpers/notes_helper_spec.rb ./spec/models/task_spec.rb ./spec/models/user_spec.rb ./spec/views/notes/create.html.erb_spec.rb ./spec/views/notes/destroy.html.erb_spec.rb ./spec/views/notes/edit.html.erb_spec.rb ./spec/views/notes/index.html.erb_spec.rb ./spec/views/notes/new.html.erb_spec.rb ./spec/views/notes/show.html.erb_spec.rb ./spec/views/notes/update.html.erb_spec.rb
+.F..FFF...*********
+
+Pending:
+  notes/show.html.erb add some examples to (or delete) /vagrant/open_camp/spec/views/notes/show.html.erb_spec.rb
+    # No reason given
+    # ./spec/views/notes/show.html.erb_spec.rb:4
+  notes/destroy.html.erb add some examples to (or delete) /vagrant/open_camp/spec/views/notes/destroy.html.erb_spec.rb
+    # No reason given
+    # ./spec/views/notes/destroy.html.erb_spec.rb:4
+  notes/update.html.erb add some examples to (or delete) /vagrant/open_camp/spec/views/notes/update.html.erb_spec.rb
+    # No reason given
+    # ./spec/views/notes/update.html.erb_spec.rb:4
+  notes/index.html.erb add some examples to (or delete) /vagrant/open_camp/spec/views/notes/index.html.erb_spec.rb
+    # No reason given
+    # ./spec/views/notes/index.html.erb_spec.rb:4
+  User add some examples to (or delete) /vagrant/open_camp/spec/models/user_spec.rb
+    # No reason given
+    # ./spec/models/user_spec.rb:4
+  notes/new.html.erb add some examples to (or delete) /vagrant/open_camp/spec/views/notes/new.html.erb_spec.rb
+    # No reason given
+    # ./spec/views/notes/new.html.erb_spec.rb:4
+  notes/create.html.erb add some examples to (or delete) /vagrant/open_camp/spec/views/notes/create.html.erb_spec.rb
+    # No reason given
+    # ./spec/views/notes/create.html.erb_spec.rb:4
+  NotesHelper add some examples to (or delete) /vagrant/open_camp/spec/helpers/notes_helper_spec.rb
+    # No reason given
+    # ./spec/helpers/notes_helper_spec.rb:14
+  notes/edit.html.erb add some examples to (or delete) /vagrant/open_camp/spec/views/notes/edit.html.erb_spec.rb
+    # No reason given
+    # ./spec/views/notes/edit.html.erb_spec.rb:4
+
+Failures:
+
+  1) NotesController GET 'update' returns http success
+     Failure/Error: get 'update'
+     ActiveRecord::RecordNotFound:
+       Couldn't find Note without an ID
+     # ./app/controllers/notes_controller.rb:37:in `update'
+     # ./spec/controllers/notes_controller_spec.rb:42:in `block (3 levels) in <top (required)>'
+
+  2) NotesController GET 'destroy' returns http success
+     Failure/Error: get 'destroy'
+     ActiveRecord::RecordNotFound:
+       Couldn't find Note without an ID
+     # ./app/controllers/notes_controller.rb:29:in `destroy'
+     # ./spec/controllers/notes_controller_spec.rb:49:in `block (3 levels) in <top (required)>'
+
+  3) NotesController GET 'show' returns http success
+     Failure/Error: get 'show'
+     ActiveRecord::RecordNotFound:
+       Couldn't find Note without an ID
+     # ./app/controllers/notes_controller.rb:10:in `show'
+     # ./spec/controllers/notes_controller_spec.rb:14:in `block (3 levels) in <top (required)>'
+
+  4) NotesController GET 'create' returns http success
+     Failure/Error: response.should be_success
+       expected success? to return true, got false
+     # ./spec/controllers/notes_controller_spec.rb:36:in `block (3 levels) in <top (required)>'
+
+Finished in 1.19 seconds
+19 examples, 4 failures, 9 pending
+
+Failed examples:
+
+rspec ./spec/controllers/notes_controller_spec.rb:41 # NotesController GET 'update' returns http success
+rspec ./spec/controllers/notes_controller_spec.rb:48 # NotesController GET 'destroy' returns http success
+rspec ./spec/controllers/notes_controller_spec.rb:13 # NotesController GET 'show' returns http success
+rspec ./spec/controllers/notes_controller_spec.rb:34 # NotesController GET 'create' returns http success
+
+Randomized with seed 7513
+
+rake aborted!
+/home/vagrant/.rvm/rubies/ruby-2.0.0-p195/bin/ruby -S rspec ./spec/controllers/notes_controller_spec.rb ./spec/helpers/notes_helper_spec.rb ./spec/models/task_spec.rb ./spec/models/user_spec.rb ./spec/views/notes/create.html.erb_spec.rb ./spec/views/notes/destroy.html.erb_spec.rb ./spec/views/notes/edit.html.erb_spec.rb ./spec/views/notes/index.html.erb_spec.rb ./spec/views/notes/new.html.erb_spec.rb ./spec/views/notes/show.html.erb_spec.rb ./spec/views/notes/update.html.erb_spec.rb failed
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195/gems/rspec-core-2.13.1/lib/rspec/core/rake_task.rb:156:in `run_task'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195/gems/rspec-core-2.13.1/lib/rspec/core/rake_task.rb:124:in `block (2 levels) in initialize'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195@global/gems/rake-10.0.4/lib/rake/file_utils_ext.rb:58:in `verbose'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195/gems/rspec-core-2.13.1/lib/rspec/core/rake_task.rb:122:in `block in initialize'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195@global/gems/rake-10.0.4/lib/rake/task.rb:246:in `call'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195@global/gems/rake-10.0.4/lib/rake/task.rb:246:in `block in execute'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195@global/gems/rake-10.0.4/lib/rake/task.rb:241:in `each'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195@global/gems/rake-10.0.4/lib/rake/task.rb:241:in `execute'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195@global/gems/rake-10.0.4/lib/rake/task.rb:184:in `block in invoke_with_call_chain'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195@global/gems/rake-10.0.4/lib/rake/task.rb:177:in `invoke_with_call_chain'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195@global/gems/rake-10.0.4/lib/rake/task.rb:170:in `invoke'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195@global/gems/rake-10.0.4/lib/rake/application.rb:143:in `invoke_task'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195@global/gems/rake-10.0.4/lib/rake/application.rb:101:in `block (2 levels) in top_level'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195@global/gems/rake-10.0.4/lib/rake/application.rb:101:in `each'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195@global/gems/rake-10.0.4/lib/rake/application.rb:101:in `block in top_level'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195@global/gems/rake-10.0.4/lib/rake/application.rb:110:in `run_with_threads'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195@global/gems/rake-10.0.4/lib/rake/application.rb:95:in `top_level'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195@global/gems/rake-10.0.4/lib/rake/application.rb:73:in `block in run'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195@global/gems/rake-10.0.4/lib/rake/application.rb:160:in `standard_exception_handling'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195@global/gems/rake-10.0.4/lib/rake/application.rb:70:in `run'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195/bin/ruby_noexec_wrapper:14:in `eval'
+/home/vagrant/.rvm/gems/ruby-2.0.0-p195/bin/ruby_noexec_wrapper:14:in `<main>'
+Tasks: TOP => spec
+(See full trace by running task with --trace)
