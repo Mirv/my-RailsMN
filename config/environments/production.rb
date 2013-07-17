@@ -69,4 +69,14 @@ OpenCamp::Application.configure do
   config.action_mailer.default_url_options
   config.action_mailer.delivery_method
   config.action_mailer.smtp_settings
+
+  config.action_mailer.default_url_options = { :host => 'rubycamp.heroku.com' }
+  config.action_mailer.delivery_method = :smtp
+	config.action_mailer.smtp_settings = {
+	  :user_name => 'opencamp-ae4120f22a087b8b',
+	  :password => 'd9ba83c7d2f7cb9d',
+	  :address => 'mailtrap.io',
+	  :port => '2525',
+	  :authentication => :plain
+	}
 end
