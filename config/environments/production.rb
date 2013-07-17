@@ -64,4 +64,9 @@ OpenCamp::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  
+  # Tweaks from Ruby on Rails bootcamp
+  config.action_mailer.default_url_options
+  config.action_mailer.delivery_method
+  config.action_mailer.smtp_settings
 end

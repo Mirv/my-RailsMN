@@ -7,6 +7,12 @@ class Task < ActiveRecord::Base
 		validates :description, presence: true, length: {within: 2..160}
 		validate :due_date_cannot_be_in_the_past
 		
+		after_save :send_creation_email
+		
+		def send_creation_email
+  			TaskMailer.task_creation(self).deliver
+		end
+		
 		def due_date_cannot_be_in_the_past
 		  unless due_date.blank?      
 		    if due_date < Date.today
