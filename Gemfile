@@ -3,6 +3,8 @@ source "https://rubygems.org"
 
 gem 'rails', '3.2.13'
 
+gem "unicorn"
+gem "foreman"
 gem "heroku"
 gem 'pg'
 gem 'devise'
